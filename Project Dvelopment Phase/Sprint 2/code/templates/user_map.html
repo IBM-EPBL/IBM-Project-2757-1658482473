@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwoSMSO2JDbfMCuKiWCEsW1qktdbTckSU&callback=initMap&v=weekly"
+      defer
+    ></script>
+
+    <script>
+
+        var a=0;
+        var b=0;
+
+        var reqcount = 0;
+        navigator.geolocation.watchPosition(successCallback, errorCallback, options);
+        
+        function successCallback(position){
+        const {accuracy, latitude, longitude, altitude, heading, speed} = position.coords;
+            reqcount++;
+            console.log("accuracy : "+accuracy);
+            console.log("latitude : "+latitude);
+            console.log("longitude : "+longitude);
+            console.log("altitude : "+ altitude);
+            console.log("heading : "+heading);
+            console.log("speed : "+speed);
+            a = latitude;
+            b=longitude;
+            window.initMap(a,b) = initMap(a,b);
+
+        }
+        function errorCallback(error) {
+            
+        }
+
+        var options={
+            enableHighAccuracy : flase,
+            timeout: 5000,
+            maximumAge:0
+        };
+
+function initMap(a,b) {
+  const pos = { lat: a, lng: b };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: pos,
+  });
+  const marker = new google.maps.Marker({
+    position: pos,
+    map: map,
+  });
+}
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
