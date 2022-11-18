@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Saftey zone</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/img/favicon.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/img/logo.png" alt=""> -->
+        <h1>Safe Zone</h1>
+        <div id="useracnt" class="useracnt">
+          <p style="color: #fff; margin : 20px -140px; position:absolute">{{name}}</p>
+        </div>
+
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+
+          <li><a href="#">Contact</a></li>
+          <li><a class="get-a-quote" href="/login">Login/Register</a></li>
+          <li><a class="btn btn-danger logout" href="/logout">Logout</a></li>
+
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+
+  </header><!-- End Header -->
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row gy-4 d-flex justify-content-between">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h2 data-aos="fade-up">Containment Zone Alerting Application</h2>
+          <p data-aos="fade-up" data-aos-delay="100">We may give a save zone details when the user passing through the
+            containmentd zone via alert message. We include a google map for registered user to track where they are
+            pass and where the containmented zone present neary by the user.</p>
+
+          <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+            <input type="text" class="form-control" placeholder="ZIP code or CitY to know the COVID-19 case details">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+
+            <div class="col-lg-3 col-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Active Cases</p>
+              </div>
+            </div><!-- End Stats Item -->
+
+            <div class="col-lg-3 col-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Deaths</p>
+              </div>
+            </div><!-- End Stats Item -->
+
+            <div class="col-lg-3 col-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Cured</p>
+              </div>
+            </div><!-- End Stats Item -->
+
+            <div class="col-lg-3 col-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Total Cases</p>
+              </div>
+            </div><!-- End Stats Item -->
+
+          </div>
+        </div>
+
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+          <img src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0" alt="">
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main"><br><br><br><br><br>
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about pt-0">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+            <img src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/img/about.jpg" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+          </div>
+          <div class="col-lg-6 content order-last  order-lg-first">
+            <h3>About Us</h3>
+            <p>
+              We offer a platform to alert users who register on our website when they enter a COVID19 infected zone
+              area using Google Maps, and we help users create the ideal path to safe family travel.
+
+            </p>
+            <ul>
+              <li data-aos="fade-up" data-aos-delay="100">
+                <i class="bi bi-diagram-3"></i>
+                <div>
+                  <h5>Suggest an alternative path</h5>
+                  <p>We give a suggestion for alternative path to reach your destination via google map as given in our
+                    site</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-fullscreen-exit"></i>
+                <div>
+                  <h5>Marking a infected area</h5>
+                  <p>We should mark a infected area with the different color circle shaped marker which denotes the
+                    infection</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-broadcast"></i>
+                <div>
+                  <h5>Location Service</h5>
+                  <p>We request you to allow us to access your location then only we can able to track our location
+                    coordinates and notify yours</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="call-to-action" class="call-to-action">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h3>Call To Action</h3>
+            <p> Click the button as shown in below to redirect you to our googel map api and monitor to protect you and
+              your family form COVID 19 zone.</p>
+            <a class="cta-btn" href="/user_map">Call To Action</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Call To Action Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+
+          <div class="col-md-5">
+            <img src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/img/features-1.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7">
+            <h3>What we do ?.</h3>
+            <p class="fst-italic">
+              We detect your location coordinates with your permission by click the allow button when you enter into our
+              googel map api and notify you when your coordintes enters into the containmented zone.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i> Track your location.</li>
+              <li><i class="bi bi-check"></i> Get your coordinates and make a live tracker.</li>
+              <li><i class="bi bi-check"></i> Alert you to enter into the specified zone.</li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+          <div class="col-md-5 order-1 order-md-2">
+            <img
+              src="data:image/jpeg;base64,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"
+              class="img-fluid" alt=""
+              style="width:700px;">
+          </div>
+          <div class="col-md-7 order-2 order-md-1">
+            <h3>What do you do ?.</h3>
+            <p class="fst-italic">
+              We want you to enable your location into your device and allow us to access your location service.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i> Register and Login into our website or mobile application.</li>
+              <li><i class="bi bi-check"></i> Click the call to action button and allow us to access your location.</li>
+              <li><i class="bi bi-check"></i> keep the network connection is enable and move utill the arival of alert
+                message.</li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+          <div class="col-md-5">
+            <img src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/img/features-3.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7">
+            <h3>Main purpose of our application.</h3>
+            <ul>
+              <li><i class="bi bi-check"></i> Alert you to travel passing through the infected zone.</li>
+              <li><i class="bi bi-check"></i> Make sure you didn't pass on the infected zone.</li>
+              <li><i class="bi bi-check"></i> Track your live locaiton and provide best route.</li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+
+
+      </div>
+    </section><!-- End Features Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-info">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span>SAFE ZONE</span>
+          </a>
+          <p>We may give a save zone details when the user passing through the
+            containmentd zone via alert message. We include a google map for registered user to track where they are
+            pass and where the containmented zone present neary by the user.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Application</a></li>
+            <li><a href="#">Mobile Application</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="copyright">
+        &copy; Copyright. Containment zone alerting application
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/aos/aos.js"></script>
+  <script src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="https://containmentbuck.s3.jp-tok.cloud-object-storage.appdomain.cloud/assets/js/main.js"></script>
+
+</body>
+
+</html>
