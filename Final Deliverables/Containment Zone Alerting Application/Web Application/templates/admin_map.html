@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN MAP</title>
+</head>
+
+<body>
+    <center>
+        <h1>CONTAINMENT ZONE DETECTION</h1>
+    </center>
+    <a href="/index" style="margin-left:1200px;">home >></a>
+    <!-- <h1>Latitude : {{success}}</h1> -->
+    <!-- <h1>name : {{name}}</h1> -->
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+        }
+    </style>
+    <script>
+        var a = '{{mark[0]["LATITUDE"]}}';
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyAwoSMSO2JDbfMCuKiWCEsW1qktdbTckSU">
+        </script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"></script> -->
+
+    <div id="map"></div>
+
+    </div>
+
+    <script>
+
+        var infowindow;
+        var map;
+        var red_icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+        var myOptions = {
+            zoom: 7,
+            center: new google.maps.LatLng(10.783907369838772, 78.00609514068769),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map'), myOptions);
+        var markers = {};
+
+        var getMarkerUniqueId = function (lat, lng) {
+            return lat + '_' + lng;
+        };
+
+
+        var getLatLng = function (lat, lng) {
+            return new google.maps.LatLng(lat, lng);
+        };
+
+        '{%for i in range(0, len)%}'
+
+        var dblat = '{{mark[i]["LATITUDE"]}}';
+        console.log("added " + '{{mark[i]["DESCRIPTION"]}}');
+        var dblng = '{{mark[i]["LANGITUDE"]}}';
+        var dbdisc = '{{mark[i]["DESCRIPTION"]}}';
+
+        console.log("lan1 : " + dblat);
+        console.log("lng1 : " + dblng);
+
+        addMarker({ lat: parseFloat(dblat), lng: parseFloat(dblng) });
+
+        '{%endfor%}'
+
+        function addMarker(coords) {
+            var marker = new google.maps.Marker({
+                position: coords,
+                map: map,
+
+            })
+            const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h1 id="firstHeading" class="firstHeading">' + dbdisc + '</h1>' +
+                '<div id="bodyContent">' +
+                'Latitude : ' + dblat + '<br>' +
+                'Langitude : ' + dblng +
+                "</div>" +
+                "</div>";
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                ariaLabel: "Uluru",
+            });
+            marker.addListener("click", () => {
+                infowindow.open({
+                    anchor: marker,
+                    map,
+                });
+            });
+
+        }
+
+
+        var addMarker = google.maps.event.addListener(map, 'click', function (e) {
+            var lat = e.latLng.lat(); // lat of clicked point
+            var lng = e.latLng.lng(); // lng of clicked point
+            var markerId = getMarkerUniqueId(lat, lng); // an that will be used to cache this marker in markers object.
+            var marker = new google.maps.Marker({
+                position: getLatLng(lat, lng),
+                map: map,
+                animation: google.maps.Animation.DROP,
+                id: 'marker_' + markerId,
+                html: "    <div id='info_" + markerId + "'>\n" +
+                    "        <form action='/latandlng' method='post'>\n" +
+                    "        <table class=\"map1\">\n" +
+                    "        <tr>\n" +
+                    "           <td><a>Latitude:</a>\n" +
+                    "           <td><input type='text' value='" + lat + "' name='lati'>\n" +
+                    "        </tr>\n" +
+                    "        <tr>\n" +
+                    "           <td><a>Longitude:</a>\n" +
+                    "           <td><input type='text' value='" + lng + "' name='lang'>\n" +
+                    "        </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td><a>Description:</a></td>\n" +
+                    "                <td><textarea  id='manual_description' name='discript' placeholder='Description'></textarea></td></tr>\n" +
+                    "            <tr><td></td><td><input type='submit' value='Save''/></td></tr>\n" +
+                    "        </table>\n" +
+                    "        </form>\n" +
+                    "    </div>"
+            });
+
+            markers[markerId] = marker; // cache marker in markers object
+            bindMarkerEvents(marker); // bind right click event to marker
+            bindMarkerinfo(marker); // bind infowindow with click event to marker
+            console.log("lat:" + lat)
+            console.log("lan:" + lng)
+
+        });
+
+
+        var bindMarkerinfo = function (marker) {
+            google.maps.event.addListener(marker, "click", function (point) {
+                var markerId = getMarkerUniqueId(point.latLng.lat(), point.latLng.lng()); // get marker id by using clicked point's coordinate
+                var marker = markers[markerId]; // find marker
+                infowindow = new google.maps.InfoWindow();
+                infowindow.setContent(marker.html);
+                infowindow.open(map, marker);
+                // removeMarker(marker, markerId); // remove it
+            });
+        };
+
+
+        var bindMarkerEvents = function (marker) {
+            google.maps.event.addListener(marker, "rightclick", function (point) {
+                var markerId = getMarkerUniqueId(point.latLng.lat(), point.latLng.lng()); // get marker id by using clicked point's coordinate
+                var marker = markers[markerId]; // find marker
+                removeMarker(marker, markerId); // remove it
+            });
+        };
+
+
+        var removeMarker = function (marker, markerId) {
+            marker.setMap(null); // set markers setMap to null to remove it from map
+            delete markers[markerId]; // delete marker instance from markers object
+        };
+
+
+
+
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(46.87916, 3.32910),
+            map: map,
+            icon: red_icon,
+            html: "<div>\n" +
+                "<table class=\"map1\">\n" +
+                "<tr>\n" +
+                "<td><a>Description:</a></td>\n" +
+                "<td><textarea disabled id='manual_description' placeholder='Description'>" + locations[i][3] + "</textarea></td></tr>\n" +
+                "</table>\n" +
+                "</div>"
+        });
+
+
+        function downloadUrl(url, callback) {
+            var request = window.ActiveXObject ?
+                new ActiveXObject('Microsoft.XMLHTTP') :
+                new XMLHttpRequest;
+
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    callback(request.responseText, request.status);
+                }
+            };
+
+            request.open('GET', url, true);
+            request.send(null);
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
